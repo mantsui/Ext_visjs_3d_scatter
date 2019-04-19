@@ -51,18 +51,18 @@
 		$(document).ready(function () {
 			// Added new code here to point to the configure function.
 			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
-				getData_to_D3();
+				getData_to_visjs();
 				
 				// Add settings listener here
 				// Help refresh the chart upon save from configuration dialog
 				unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
-					getData_to_D3();
+					getData_to_visjs();
 				});
 
 			}, function () { console.log('Error while Initializing: ' + err.toString()); });
 		});		
 		
-		function getData_to_D3() {
+		function getData_to_visjs() {
 
 		const worksheets=tableau.extensions.dashboardContent.dashboard.worksheets;
 		console.log('Debug worksheets ', worksheets); //03.24.19 Temp Debug
@@ -71,7 +71,8 @@
 		// reference.
 
 		var debugTimestamp = new Date();
-		var sheetName = tableau.extensions.settings.get("worksheet");
+		//var sheetName = tableau.extensions.settings.get("worksheet");
+		var sheetName = 'Medicare TabData'; // Temp 04.19.19 code
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
 
 		dict_Settings = tableau.extensions.settings.getAll();
