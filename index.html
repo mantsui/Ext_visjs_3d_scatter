@@ -151,6 +151,7 @@
 				for (var FieldIndex = 0; FieldIndex < TableauData.data[RowIndex].length; FieldIndex++) {
 					var FieldName = TableauData.columns[FieldIndex].fieldName;
 					
+					console.log('Debug typeof TableauData.data[RowIndex][FieldIndex].value: ', typeof TableauData.data[RowIndex][FieldIndex].value);
 					if (typeof TableauData.data[RowIndex][FieldIndex].value) == 'number' {
 						SingleObject[FieldName] = TableauData.data[RowIndex][FieldIndex].value;
 					}
