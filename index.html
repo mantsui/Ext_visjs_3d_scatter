@@ -150,8 +150,13 @@
 				var SingleObject = new Object();
 				for (var FieldIndex = 0; FieldIndex < TableauData.data[RowIndex].length; FieldIndex++) {
 					var FieldName = TableauData.columns[FieldIndex].fieldName;
-					//SingleObject[FieldName] = TableauData.data[RowIndex][FieldIndex].value;
-					SingleObject[FieldName] = TableauData.data[RowIndex][FieldIndex].formattedValue; // 04.19.19 Test code
+					
+					if (typeof TableauData.data[RowIndex][FieldIndex].value) == 'number' {
+						SingleObject[FieldName] = TableauData.data[RowIndex][FieldIndex].value;
+					}
+					else {
+						SingleObject[FieldName] = TableauData.data[RowIndex][FieldIndex].formattedValue;
+					}
 				}//Looping through the object number of properties (aka: Fields) in object
 				
 				Array_Of_Objects.push(SingleObject);	// Dynamically append object to the array
