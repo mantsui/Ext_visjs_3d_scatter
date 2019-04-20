@@ -273,7 +273,14 @@
 
 				if (!hash[key]) {
 					var tempObj = { xValueName: 'Inpatient_Discharges', yValueName: 'IP_Days_OP_Visits_Trips', zValueName: 'FTE_Employees', x: '0', y: '0', z: '0', style: vis_js_dotSize };
-					Object.defineProperty(tempObj, Ordered_Dimensions[0], {value : d[ Ordered_Dimensions[0] ],
+					
+					for(var index = 0; index < Ordered_Dimensions.length; index++) {
+						Object.defineProperty(tempObj, Ordered_Dimensions[index], {value : d[ Ordered_Dimensions[index] ],
+							writable : true,
+							enumerable : true,
+							configurable : true});							
+					}
+					/*Object.defineProperty(tempObj, Ordered_Dimensions[0], {value : d[ Ordered_Dimensions[0] ],
 						writable : true,
 						enumerable : true,
 						configurable : true});
@@ -284,7 +291,7 @@
 					Object.defineProperty(tempObj, Ordered_Dimensions[2], {value : d[ Ordered_Dimensions[2] ],
 						writable : true,
 						enumerable : true,
-						configurable : true});
+						configurable : true});*/
 
 					console.log('tempObj: ', tempObj);
 					
