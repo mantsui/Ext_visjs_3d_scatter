@@ -112,7 +112,7 @@
 
 			//Sunburst Code
 			//draw_D3(TableauTreeData, strDisplayName, Ordered_Dimensions, uniqEleCount, colorScale);
-			draw_visjs_Chart();
+			draw_visjs_Chart(visjsDataInput);
 
 		});
 		}
@@ -135,9 +135,93 @@
 			});
 		}
 		
-		function draw_visjs_Chart(){
+		function draw_visjs_Chart(inputArray){
 			console.log('Running draw_visjs_Chart()');
 
+			var data = new vis.DataSet();
+
+			data.add(inputArray);
+
+			//console.log("*** data ***");	//Debug output
+			//console.log(data);		//Debug output
+
+			// specify options
+			var options = {
+				width:  '600px',
+				height: '600px',
+				style: 'dot-size',
+				showPerspective: false,
+				showGrid: true,
+
+				backgroundColor: '#000000',	// Set background color to black
+				gridColor: '#f2f2f2',	// Set grid color to white
+				axisColor: '#f2f2f2',	// Set x-axis, y-axis, z-axis colors to white
+				dataColor: 'rgba(137, 246, 243, 0.6)',	// Set dot color to light green with 60% opacity
+
+				xLabel: 'Inpatient Discharges',
+				yLabel: 'IP Days OP Visits Trips',
+				zLabel: 'FTE Employees',
+
+				xValueLabel: function(value) {
+						return value.toLocaleString();
+				},
+				yValueLabel: function(value) {
+						return value.toLocaleString();
+				},
+				zValueLabel: function(value) {
+						return value.toLocaleString();
+				},
+
+				keepAspectRatio: false,
+				//legendLabel:'value',
+				showLegend: false,
+				//tooltip: true,
+
+				// Option tooltip can be true, false, or a function returning a string with HTML contents
+				tooltip: function (point) {
+					// parameter point contains properties x, y, z, and data
+					// data is the original object passed to the point constructor
+
+					//Tableau mark selection on map sheet
+					//setSingleMarkTo(vizMedicareCostStat, "Hosp Stat Map visjs Pair", point.data['State'], point.data['Zip Code Desc']);
+
+					return '<b><u>' + point.data['Hospital Component Name'] + '</u></b><br>' +
+					       'State: ' + point.data['State'] + '<br>' +
+					       'Zip Code Desc: ' + point.data['Zip Code Desc'] + '<br><br>' +
+					       'FTE Employees: <b>' + point.z.toLocaleString() + '</b><br><br>' +
+					       'Inpatient Discharges: <b>' + point.x.toLocaleString() + '</b><br>' +
+					       'IP Days OP Visits Trips: <b>' + point.y.toLocaleString() + '</b><br>';
+				},
+
+				// Tooltip default styling can be overridden
+				tooltipStyle: {
+					content: {
+						background    : 'rgba(255, 255, 255, 0.8)',
+						padding       : '10px',
+						borderRadius  : '10px'
+					},
+					line: {
+						borderLeft    : '1px dotted rgba(0, 0, 0, 0.5)'
+					},
+					dot: {
+						border        : '5px solid rgba(0, 0, 0, 0.5)'
+					}
+				},
+
+				verticalRatio: 1.0,
+				cameraPosition: {
+					horizontal: -0.54,
+					vertical: 0.5,
+					distance: 1.6
+				},
+				dotSizeMinFraction: 0.5,
+				dotSizeMaxFraction: 2.5
+			};
+
+			// create our graph
+			var graph = null;
+			var container = document.getElementById('D3_Chart');
+			graph = new vis.Graph3d(container, data, options);
 
 		} // function draw_visjs_Chart(data) block end
 		
