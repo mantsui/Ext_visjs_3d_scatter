@@ -112,7 +112,7 @@
 
 			//Sunburst Code
 			//draw_D3(TableauTreeData, strDisplayName, Ordered_Dimensions, uniqEleCount, colorScale);
-			draw_D3();
+			draw_visjs_Chart();
 
 		});
 		}
@@ -135,11 +135,11 @@
 			});
 		}
 		
-		function draw_D3(){
-			console.log('Running draw_D3()');
+		function draw_visjs_Chart(){
+			console.log('Running draw_visjs_Chart()');
 
 
-		} // function draw_D3(data) block end
+		} // function draw_visjs_Chart(data) block end
 		
 		// Tableau .getData() returns an array (rows) of arrays (columns) of objects, 
 		// which have a formattedValue property.
@@ -191,8 +191,8 @@
 
 				if (!hash[key]) {
 					hash[key] = { State: d['State'], 'Zip Code Desc': d['Zip Code Desc'], "Hospital Component Name": d['Hospital Component Name'], xValueName: 'Inpatient_Discharges', yValueName: 'IP_Days_OP_Visits_Trips', zValueName: 'FTE_Employees', x: '0', y: '0', z: '0', style: vis_js_dotSize };
-					console.log('Debug hash[key]: ', hash[key]);
-					console.log('Debugy typeof hash[key]: ', typeof hash[key]);
+					//console.log('Debug hash[key]: ', hash[key]);    // 04.19.19 temp code
+					//console.log('Debug typeof hash[key]: ', typeof hash[key]); // 04.19.19 temp code
 					groupedArray.push(hash[key]);
 				}
 			});	
