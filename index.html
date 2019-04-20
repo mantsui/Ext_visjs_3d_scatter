@@ -267,6 +267,8 @@
 			}*/
 			Ordered_Dimensions = ['State', 'Zip Code Desc', 'Hospital Component Name'];
 
+			var Ordered_Measures = ['Inpatient_Discharges', 'IP_Days_OP_Visits_Trips', 'FTE_Employees'];
+
 			// Grouping up array into unique dimension records (Hospital name, State, Zip Code Desc)
 			FlatData.forEach(function (d) {
 				var key = Ordered_Dimensions.map(function (k) { return d[k]; }).join('|');
@@ -280,20 +282,6 @@
 							enumerable : true,
 							configurable : true});							
 					}
-					/*Object.defineProperty(tempObj, Ordered_Dimensions[0], {value : d[ Ordered_Dimensions[0] ],
-						writable : true,
-						enumerable : true,
-						configurable : true});
-					Object.defineProperty(tempObj, Ordered_Dimensions[1], {value : d[ Ordered_Dimensions[1] ],
-						writable : true,
-						enumerable : true,
-						configurable : true});
-					Object.defineProperty(tempObj, Ordered_Dimensions[2], {value : d[ Ordered_Dimensions[2] ],
-						writable : true,
-						enumerable : true,
-						configurable : true});*/
-
-					console.log('tempObj: ', tempObj);
 					
 					hash[key] = tempObj;
 
