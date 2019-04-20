@@ -270,12 +270,11 @@
 					Ordered_Dimensions.push(value);
 				}
 			}*/
-			Ordered_Dimensions = ['Hospital Component Name', 'State', 'Zip Code Desc'];
+			Ordered_Dimensions = ['State', 'Zip Code Desc', 'Hospital Component Name'];
 
 
 			// Grouping up array into unique dimension records (Hospital name, State, Zip Code Desc)
 			FlatData.forEach(function (d) {
-				//var key = ['Hospital Component Name', 'State', 'Zip Code Desc'].map(function (k) { return d[k]; }).join('|');
 				var key = Ordered_Dimensions.map(function (k) { return d[k]; }).join('|');
 
 				if (!hash[key]) {
