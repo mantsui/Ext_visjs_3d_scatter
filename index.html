@@ -278,7 +278,7 @@
 				var key = Ordered_Dimensions.map(function (k) { return d[k]; }).join('|');
 
 				if (!hash[key]) {
-					var tempObj01[ Ordered_Dimensions[0] ] = d[ Ordered_Dimensions[0] ];
+					var tempObj01[ [Ordered_Dimensions[0]] ] = d[ Ordered_Dimensions[0] ];
 					console.log('tempObj01: ', tempObj01);
 					
 					
@@ -294,12 +294,10 @@
 					if ( o['State'] == d['State'] && o['Zip Code Desc'] == d['Zip Code Desc'] && o['Hospital Component Name'] == d['Hospital Component Name']  ) {
 
 						if (d['Measure Names'] == 'Inpatient_Discharges') {
-							//o.x = parseFloat( d['Measure Values'].replace(/,/g,"") );
 							o.x = d['Measure Values'] ;
 						}
 
 						if (d['Measure Names'] == 'IP_Days_OP_Visits_Trips') {
-							//o.y = parseFloat( d['Measure Values'].replace(/,/g,"") );
 							o.y = d['Measure Values'];
 						}
 
