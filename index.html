@@ -202,15 +202,17 @@
 					if ( o['State'] == d['State'] && o['Zip Code Desc'] == d['Zip Code Desc'] && o['Hospital Component Name'] == d['Hospital Component Name']  ) {
 
 						if (d['Measure Names'] == 'Inpatient_Discharges') {
-							o.x = parseFloat( d['Measure Values'].replace(/,/g,"") );
+							//o.x = parseFloat( d['Measure Values'].replace(/,/g,"") );
+							o.x = d['Measure Values'] ;
 						}
 
 						if (d['Measure Names'] == 'IP_Days_OP_Visits_Trips') {
-							o.y = parseFloat( d['Measure Values'].replace(/,/g,"") );					
+							//o.y = parseFloat( d['Measure Values'].replace(/,/g,"") );
+							o.y = d['Measure Values'];
 						}
 
 						if (d['Measure Names'] == 'FTE_Employees') {
-							o.z = parseFloat( d['Measure Values'].replace(/,/g,"") );					
+							o.z = d['Measure Values'];
 						}
 
 					}
