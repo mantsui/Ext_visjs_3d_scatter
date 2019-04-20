@@ -291,7 +291,8 @@
 
 			FlatData.forEach(function (d) {
 				groupedArray.forEach(function (o) {
-					if ( o['State'] == d['State'] && o['Zip Code Desc'] == d['Zip Code Desc'] && o['Hospital Component Name'] == d['Hospital Component Name']  ) {
+					//if ( o['State'] == d['State'] && o['Zip Code Desc'] == d['Zip Code Desc'] && o['Hospital Component Name'] == d['Hospital Component Name']  ) {
+					if ( o[ Ordered_Dimensions[0] ] == d[ Ordered_Dimensions[0] ] && o[ Ordered_Dimensions[1] ] == d[ Ordered_Dimensions[1] ] && o[ Ordered_Dimensions[2] ] == d[ Ordered_Dimensions[2] ]  ) {
 
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
 							o.x = d['Measure Values'] ;
