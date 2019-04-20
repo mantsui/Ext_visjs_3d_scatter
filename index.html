@@ -293,15 +293,15 @@
 				groupedArray.forEach(function (o) {
 					if ( o['State'] == d['State'] && o['Zip Code Desc'] == d['Zip Code Desc'] && o['Hospital Component Name'] == d['Hospital Component Name']  ) {
 
-						if (d['Measure Names'] == 'Inpatient_Discharges') {
+						if (d['Measure Names'] == Ordered_Measures[0] ) {
 							o.x = d['Measure Values'] ;
 						}
 
-						if (d['Measure Names'] == 'IP_Days_OP_Visits_Trips') {
+						if (d['Measure Names'] == Ordered_Measures[1] ) {
 							o.y = d['Measure Values'];
 						}
 
-						if (d['Measure Names'] == 'FTE_Employees') {
+						if (d['Measure Names'] == Ordered_Measures[2] ) {
 							o.z = d['Measure Values'];
 						}
 
