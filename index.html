@@ -78,6 +78,7 @@
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
 
 		dict_Settings = tableau.extensions.settings.getAll();
+		dict_Settings = { MeasureName_0 : 'State', MeasureName_1 : 'Zip Code Desc', MeasureName_2 : 'Hospital Component Name'};
 		console.log('dict_Settings: ', dict_Settings);
 
 		//console.log('tableau.extensions.settings.get("worksheet") Worksheet Name: ' + sheetName);
