@@ -260,16 +260,18 @@
 			var vis_js_dotSize = 1;
 
 			var Ordered_Dimensions = [];
+			var Ordered_Measures = [];
 			for(var key in obj_Ext_Settings) {
 				var value = obj_Ext_Settings[key];
 				if (key.startsWith('FieldName_')){
 					Ordered_Dimensions.push(value);
 				}
+				if (key.startsWith('MeasureName_')){
+					Ordered_Measures.push(value);
+				}
 			}
-			console.log('Debug Ordered_Dimensions: ', Ordered_Dimensions);
-			//Ordered_Dimensions = ['State', 'Zip Code Desc', 'Hospital Component Name'];
 
-			var Ordered_Measures = ['Inpatient_Discharges', 'IP_Days_OP_Visits_Trips', 'FTE_Employees'];
+			//var Ordered_Measures = ['Inpatient_Discharges', 'IP_Days_OP_Visits_Trips', 'FTE_Employees'];
 
 			// Grouping up array into unique dimension records (Hospital name, State, Zip Code Desc)
 			FlatData.forEach(function (d) {
