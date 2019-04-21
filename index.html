@@ -110,7 +110,7 @@
 			var visjsDataInput = Convert_to_visjs_Array_of_Obj(Tableau_Array_of_Objects);
 			console.log('Debug visjsDataInput: ', visjsDataInput);
 
-			draw_visjs_Chart(visjsDataInput);
+			draw_visjs_Chart(visjsDataInput, dict_Settings);
 
 		});
 		}
@@ -254,19 +254,19 @@
 		}
 
 		// Convert tabulated data into tabulated array of array data
-		function Convert_to_visjs_Array_of_Obj(FlatData){
+		function Convert_to_visjs_Array_of_Obj(FlatData, obj_Ext_Settings){
 			var hash = Object.create(null);
 			var groupedArray = [];
 			var vis_js_dotSize = 1;
 
 			var Ordered_Dimensions = [];
-			/*for(var key in dict_Settings) {
+			for(var key in obj_Ext_Settings) {
 				var value = dict_Settings[key];
 				if (key.startsWith('FieldName_')){
 					Ordered_Dimensions.push(value);
 				}
-			}*/
-			Ordered_Dimensions = ['State', 'Zip Code Desc', 'Hospital Component Name'];
+			}
+			//Ordered_Dimensions = ['State', 'Zip Code Desc', 'Hospital Component Name'];
 
 			var Ordered_Measures = ['Inpatient_Discharges', 'IP_Days_OP_Visits_Trips', 'FTE_Employees'];
 
