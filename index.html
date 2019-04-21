@@ -107,10 +107,10 @@
 			var Tableau_Array_of_Objects = ReduceToObjectTablulated(sumdata);
 			console.log('DebugTableau_Array_of_Objects: ', Tableau_Array_of_Objects);
 
-			var visjsDataInput = Convert_to_visjs_Array_of_Obj(Tableau_Array_of_Objects);
+			var visjsDataInput = Convert_to_visjs_Array_of_Obj(Tableau_Array_of_Objects, dict_Settings);
 			console.log('Debug visjsDataInput: ', visjsDataInput);
 
-			draw_visjs_Chart(visjsDataInput, dict_Settings);
+			draw_visjs_Chart(visjsDataInput);
 
 		});
 		}
