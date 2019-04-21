@@ -103,7 +103,7 @@
 			var visjsDataInput = Convert_to_visjs_Array_of_Obj(Tableau_Array_of_Objects, dict_Settings);
 			console.log('Debug visjsDataInput: ', visjsDataInput);
 
-			draw_visjs_Chart(visjsDataInput);
+			draw_visjs_Chart(visjsDataInput, dict_Settings);
 
 		});
 		}
@@ -126,12 +126,18 @@
 			});
 		}
 		
-		function draw_visjs_Chart(inputArray){
-			console.log('Running draw_visjs_Chart()');
-
+		function draw_visjs_Chart(inputArray, obj_Ext_Settings){
 			var data = new vis.DataSet();
-
 			data.add(inputArray);
+
+			var Ordered_Dimensions = [];
+			for(var key in obj_Ext_Settings) {
+				var value = obj_Ext_Settings[key];
+				if (key.startsWith('FieldName_')){
+					Ordered_Dimensions.push(value);
+				}
+			}
+
 
 			// specify options
 			var options = {
@@ -146,9 +152,9 @@
 				axisColor: '#f2f2f2',	// Set x-axis, y-axis, z-axis colors to white
 				dataColor: 'rgba(137, 246, 243, 0.6)',	// Set dot color to light green with 60% opacity
 
-				xLabel: 'Inpatient Discharges',
-				yLabel: 'IP Days OP Visits Trips',
-				zLabel: 'FTE Employees',
+				xLabel: Ordered_Dimensions[0],
+				yLabel: Ordered_Dimensions[1],
+				zLabel: Ordered_Dimensions[2],
 
 				xValueLabel: function(value) {
 					return value.toLocaleString();
