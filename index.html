@@ -179,11 +179,11 @@
 					//Tableau mark selection on map sheet
 					//setSingleMarkTo(vizMedicareCostStat, "Hosp Stat Map visjs Pair", point.data['State'], point.data['Zip Code Desc']);
 
-					var strOutput;
+					var strOutput = '';
 					strOutput = "'<b><u>' + point.data['Hospital Component Name'] + '</u></b><br>' ";
 					
 					
-					return strOutput;
+					return html(strOutput);
 					/*return '<b><u>' + point.data['Hospital Component Name'] + '</u></b><br>' +
 					       'State: ' + point.data['State'] + '<br>' +
 					       'Zip Code Desc: ' + point.data['Zip Code Desc'] + '<br><br>' +
