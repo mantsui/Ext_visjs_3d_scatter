@@ -130,10 +130,14 @@
 			data.add(inputArray);
 
 			var Ordered_Dimensions = [];
+			var Ordered_Measures = [];
 			for(var key in obj_Ext_Settings) {
 				var value = obj_Ext_Settings[key];
 				if (key.startsWith('FieldName_')){
 					Ordered_Dimensions.push(value);
+				}
+				if (key.startsWith('MeasureName_')){
+					Ordered_Measures.push(value);
 				}
 			}
 
@@ -182,8 +186,10 @@
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
 					
 					for(var index = 1; index < Ordered_Dimensions.length; index++) {
-						strOutput += Ordered_Dimensions[index] + point.data[ Ordered_Dimensions[index] ] + "<br>";
+						strOutput += point.data[ Ordered_Dimensions[index] ] + "<br>";
 					}
+					
+					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.z.toLocaleString() + "</b><br>";
 					
 					return strOutput;
 					/*return '<b><u>' + point.data['Hospital Component Name'] + '</u></b><br>' +
