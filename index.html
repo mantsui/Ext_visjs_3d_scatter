@@ -114,7 +114,6 @@
 			let defaultPayload = "";
 			tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:700, width:500 }).then((closePayload) => {
 				// drawD3chart(); 03.30.19 old code
-				getData_to_D3(); //0 3.30.19 test code
 			}).catch((error) => {
 				switch (error.errorCode) {
 					case tableau.ErrorCodes.DialogClosedByUser:
@@ -182,6 +181,9 @@
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
 					
+					for(var index = 1; index < Ordered_Dimensions.length; index++) {
+						strOutput += Ordered_Dimensions[index] + point.data[ Ordered_Dimensions[index] ] + "<br>";
+					}
 					
 					return strOutput;
 					/*return '<b><u>' + point.data['Hospital Component Name'] + '</u></b><br>' +
