@@ -189,7 +189,9 @@
 						strOutput += point.data[ Ordered_Dimensions[index] ] + "<br>";
 					}
 					
-					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.z.toLocaleString() + "</b><br>";
+					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.x.toLocaleString() + "</b>";
+					strOutput += "<br>" + Ordered_Measures[1] + ": " + "<b>" + point.y.toLocaleString() + "</b>";
+					strOutput += "<br>" + Ordered_Measures[2] + ": " + "<b>" + point.z.toLocaleString() + "</b>";
 					
 					return strOutput;
 					/*return '<b><u>' + point.data['Hospital Component Name'] + '</u></b><br>' +
