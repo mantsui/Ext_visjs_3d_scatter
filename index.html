@@ -66,12 +66,12 @@
 		// reference.
 
 		var debugTimestamp = new Date();
-		//var sheetName = tableau.extensions.settings.get("worksheet");
-		var sheetName = 'Medicare TabData'; // Temp 04.19.19 code
+		var sheetName = tableau.extensions.settings.get("worksheet");
+		//var sheetName = 'Medicare TabData'; // Temp 04.19.19 code
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
 
 		dict_Settings = tableau.extensions.settings.getAll();
-		dict_Settings = { MeasureName_0 : 'Inpatient_Discharges', MeasureName_1 : 'IP_Days_OP_Visits_Trips', MeasureName_2 : 'FTE_Employees', FieldName_0 : 'State', FieldName_1 : 'Zip Code Desc', FieldName_2 : 'Hospital Component Name'};
+		//dict_Settings = { MeasureName_0 : 'Inpatient_Discharges', MeasureName_1 : 'IP_Days_OP_Visits_Trips', MeasureName_2 : 'FTE_Employees', FieldName_0 : 'State', FieldName_1 : 'Zip Code Desc', FieldName_2 : 'Hospital Component Name'};
 		console.log('dict_Settings: ', dict_Settings);
 
 		//console.log('tableau.extensions.settings.get("worksheet") Worksheet Name: ' + sheetName);
