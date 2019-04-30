@@ -100,9 +100,9 @@
 			var Tableau_Array_of_Objects = ReduceToObjectTablulated(sumdata);
 			console.log('DebugTableau_Array_of_Objects: ', Tableau_Array_of_Objects);
 
-			Tableau_Array_of_Objects.sort(compareValues('Hospital Component Name'));
 			Tableau_Array_of_Objects.sort(compareValues('Zip Code Desc'));
 			Tableau_Array_of_Objects.sort(compareValues('State'));
+			Tableau_Array_of_Objects.sort(compareValues('Hospital Component Name'));
 			
 			var visjsDataInput = Convert_to_visjs_Array_of_Obj(Tableau_Array_of_Objects, dict_Settings);
 			console.log('Debug visjsDataInput: ', visjsDataInput);
