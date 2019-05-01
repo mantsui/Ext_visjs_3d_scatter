@@ -334,10 +334,15 @@
 				});
 			});
 
-			console.log('Debug groupedArray: ', JSON.stringify(groupedArray) );
+			debugArrayofObjects(groupedArray);
 			return groupedArray;
 		}
 
+		function debugArrayofObjects(arrayInput) {
+			var strOutput = JSON.stringify(arrayInput);
+			console.log('---------- Debug Array of Objects ----------');
+			console.log(strOutput);
+		}
 
 		// Function for dynamic sorting
 		function compareValues(key, order='asc') {
