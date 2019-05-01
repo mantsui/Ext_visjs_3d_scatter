@@ -340,9 +340,9 @@
 
 		function debugArrayofObjects(arrayInput) {
 			var strOutput = JSON.stringify(arrayInput);
-			strOutput = strOutput.replace('[', '');
-			strOutput = strOutput.replace(']', '');
-			strOutput = strOutput.replace('},{', '\n');
+			strOutput = strOutput.replace(/[/g, '');
+			strOutput = strOutput.replace(/]/g, '');
+			strOutput = strOutput.replace(/},{/g, '\n');
 			console.log('---------- Debug Array of Objects ----------');
 			console.log(strOutput);
 		}
