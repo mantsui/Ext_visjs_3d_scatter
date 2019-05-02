@@ -60,21 +60,17 @@
 		function getData_to_visjs() {
 
 		const worksheets=tableau.extensions.dashboardContent.dashboard.worksheets;
-		console.log('Debug worksheets ', worksheets); //03.24.19 Temp Debug
 		// We will try to read the worksheet from the settings, if this exists we will show
 		// the configuration screen, otherwise we will clear the table and destroy the
 		// reference.
 
 		var debugTimestamp = new Date();
 		var sheetName = tableau.extensions.settings.get("worksheet");
-		//var sheetName = 'Medicare TabData'; // Temp 04.19.19 code
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
 
 		dict_Settings = tableau.extensions.settings.getAll();
-		//dict_Settings = { MeasureName_0 : 'Inpatient_Discharges', MeasureName_1 : 'IP_Days_OP_Visits_Trips', MeasureName_2 : 'FTE_Employees', FieldName_0 : 'State', FieldName_1 : 'Zip Code Desc', FieldName_2 : 'Hospital Component Name'};
 		console.log('dict_Settings: ', dict_Settings);
 
-		//console.log('tableau.extensions.settings.get("worksheet") Worksheet Name: ' + sheetName);
 		if (sheetName == undefined || sheetName =="" || sheetName == null) {
 			$("#configure").show();
 			configure();
@@ -313,6 +309,8 @@
 							matchCounter++;
 						}
 					}
+					
+					console.log('Looping matchCounter: ', matchCounter);
 					
 					if (matchCounter = Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
