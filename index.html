@@ -306,18 +306,15 @@
 
 			FlatData.forEach(function (d) {
 				groupedArray.forEach(function (o) {
-					var bool_dimension_match = false;
+					var matchCounter = 0;
 					
 					for (var index = 0; index < Ordered_Dimensions.length; index++) {
 						if(o[ Ordered_Dimensions[index] ] == d[ Ordered_Dimensions[index] ]) {
-							bool_dimension_match = true;
-						}
-						else {
-							bool_dimension_match = false;
+							matchCounter++;
 						}
 					}
 					
-					if (bool_dimension_match) {
+					if (matchCounter = Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
 							o.x = d['Measure Values'] ;
 						}
