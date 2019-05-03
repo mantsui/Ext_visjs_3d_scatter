@@ -142,12 +142,13 @@
 			}
 
 			var divWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var divHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 			//width: '600px'
 
 			// specify options
 			var options = {
 				width:  divWidth.toString() + 'px',
-				height: '600px',
+				height: divHeight.toString() + 'px',
 				style: 'dot-size',
 				showPerspective: false,
 				showGrid: true,
