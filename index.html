@@ -278,6 +278,10 @@
 					Ordered_Measures.push(value);
 				}
 			}
+			
+			console.log('FlatData: ', FlatData);
+			console.log('Ordered_Measures: ', Ordered_Measures);
+			console.log('Ordered_Dimensions: ', Ordered_Dimensions);
 
 			// Grouping up array into unique dimension records (Hospital name, State, Zip Code Desc)
 			FlatData.forEach(function (d) {
@@ -314,8 +318,8 @@
 					}
 					
 					//console.log('Looping matchCounter: ', matchCounter);
-					console.log('d', d);
-					console.log("d['Measure Names'] : ", d['Measure Names']);
+					//console.log('d', d);
+					//console.log("d['Measure Names'] : ", d['Measure Names']);
 					if (matchCounter = Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
 							o.x = d['Measure Values'] ;
