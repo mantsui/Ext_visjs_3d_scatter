@@ -141,10 +141,12 @@
 				}
 			}
 
+			var divWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			//width: '600px'
 
 			// specify options
 			var options = {
-				width:  '600px',
+				width:  divWidth.toString() + 'px',
 				height: '600px',
 				style: 'dot-size',
 				showPerspective: false,
