@@ -288,7 +288,7 @@
 				var key = Ordered_Dimensions.map(function (k) { return d[k]; }).join('|');
 
 				if (!hash[key]) {
-					var tempObj = { Ordered_Measures[0] : Ordered_Dimensions[0], Ordered_Measures[1] : Ordered_Dimensions[1], Ordered_Measures[2] : Ordered_Dimensions[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
+					var tempObj = { xValueName : Ordered_Dimensions[0], yValueName : Ordered_Dimensions[1], zValueName : Ordered_Dimensions[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
 					//var tempObj = { xValueName: Ordered_Measures[0], yValueName: Ordered_Measures[1], zValueName: Ordered_Measures[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
 					//var tempObj = { xValueName: Ordered_Dimensions[0], yValueName: Ordered_Dimensions[1], zValueName: Ordered_Dimensions[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
 					
