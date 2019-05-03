@@ -143,7 +143,8 @@
 
 			var divWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 			var divHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-			//width: '600px'
+			var padding = 20;
+			divWidth = divWidth + padding;
 
 			// specify options
 			var options = {
@@ -292,8 +293,6 @@
 
 				if (!hash[key]) {
 					var tempObj = { xValueName : Ordered_Measures[0], yValueName : Ordered_Measures[1], zValueName : Ordered_Measures[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
-					//var tempObj = { xValueName: Ordered_Measures[0], yValueName: Ordered_Measures[1], zValueName: Ordered_Measures[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
-					//var tempObj = { xValueName: Ordered_Dimensions[0], yValueName: Ordered_Dimensions[1], zValueName: Ordered_Dimensions[2], x: '0', y: '0', z: '0', style: vis_js_dotSize };
 					
 					for(var index = 0; index < Ordered_Dimensions.length; index++) {
 						Object.defineProperty(tempObj, Ordered_Dimensions[index], {value : d[ Ordered_Dimensions[index] ],
@@ -317,14 +316,8 @@
 						if(o[ Ordered_Dimensions[index] ] == d[ Ordered_Dimensions[index] ]) {
 							matchCounter++;
 						}
-						//console.log('Looping');
-						//console.log('o[Ordered_Dimensions[index]] :', o[ Ordered_Dimensions[index] ]);
-						//console.log('d[Ordered_Dimensions[index]] :', d[ Ordered_Dimensions[index] ]);
 					}
 					
-					//console.log('Looping matchCounter: ', matchCounter);
-					//console.log('d', d);
-					//console.log("d['Measure Names'] : ", d['Measure Names']);
 					if (matchCounter == Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
 							o.x = d['Measure Values'] ;
