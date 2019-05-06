@@ -144,6 +144,9 @@
 			var divWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 			var divHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
+			var settingBackgroundColor = 'rgba(0, 0, 0, 0.4)';
+			settingBackgroundColor = obj_Ext_Settings['backgroundColor'];
+			
 			// specify options
 			var options = {
 				width:  divWidth.toString() + 'px',
@@ -152,7 +155,7 @@
 				showPerspective: false,
 				showGrid: true,
 
-				backgroundColor: 'rgba(0, 0, 0, 0.4)',	// Set background color to black '#000000'
+				backgroundColor: settingBackgroundColor,	// Set background color to black '#000000'
 				gridColor: '#f2f2f2',	// Set grid color to white
 				axisColor: '#f2f2f2',	// Set x-axis, y-axis, z-axis colors to white
 				dataColor: 'rgba(137, 246, 243, 0.6)',	// Set dot color to light green with 60% opacity
