@@ -281,10 +281,6 @@
 				}
 			}
 			
-			console.log('FlatData: ', FlatData);
-			console.log('Ordered_Measures: ', Ordered_Measures);
-			console.log('Ordered_Dimensions: ', Ordered_Dimensions);
-
 			// Grouping up array into unique dimension records (Hospital name, State, Zip Code Desc)
 			FlatData.forEach(function (d) {
 				var key = Ordered_Dimensions.map(function (k) { return d[k]; }).join('|');
@@ -306,7 +302,6 @@
 			});	
 
 			FlatData.forEach(function (d) {
-				console.log('forEach d: ', d);
 				groupedArray.forEach(function (o) {
 					var matchCounter = 0;
 					
