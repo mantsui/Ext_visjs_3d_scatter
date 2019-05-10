@@ -42,15 +42,22 @@
 		// https://tableau.github.io/extensions-api/docs/interfaces/dashboard.html#addeventlistener
 		let unregisterSettingsEventListener = null;
 		var dict_Settings = [];
-		
+
+		let worksheet = null; //05.10.19 new code
+		let worksheetName = null; //05.10.19 new code
+		let categoryColumnNumber = null; //05.10.19 new code
+		let valueColumnNumber = null; //05.10.19 new code
+
 		$(document).ready(function () {
 			// Added new code here to point to the configure function.
 			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
+				getSettings();
 				getData_to_visjs();
 				
 				// Add settings listener here
 				// Help refresh the chart upon save from configuration dialog
 				unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
+					getSettings();
 					getData_to_visjs();
 				});
 
@@ -372,6 +379,27 @@
 			};
 		}
 
+		function getSettings() {
+			// Once the settings change populate global variables from the settings.
+			worksheetName = tableau.extensions.settings.get("worksheet");
+			categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
+			valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
+
+			// If settings are changed we will unregister and re register the listener.
+			if (unregisterFilterEventListener != null) {
+				unregisterFilterEventListener();
+			}
+
+			// Get worksheet
+			worksheet = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) {
+				return sheet.name===worksheetName;
+			});
+
+			// Add listener
+			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
+				getData_to_visjs();
+			});
+		}
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
 		function setFilterTo(filterSheetName, filterName, values) {
