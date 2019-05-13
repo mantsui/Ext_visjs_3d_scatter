@@ -48,7 +48,9 @@
 
 		$(document).ready(function () {
 			// Added new code here to point to the configure function.
-			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {				
+			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
+				dict_Settings = tableau.extensions.settings.getAll();
+				
 				setupFilterEventListener();
 				getData_to_visjs();				
 			}, function () { console.log('Error while Initializing: ' + err.toString()); });
@@ -65,7 +67,6 @@
 		var sheetName = tableau.extensions.settings.get("worksheet");
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
 
-		dict_Settings = tableau.extensions.settings.getAll();
 
 		if (sheetName == undefined || sheetName =="" || sheetName == null) {
 			$("#configure").show();
