@@ -42,8 +42,10 @@
 		// https://tableau.github.io/extensions-api/docs/interfaces/dashboard.html#addeventlistener
 		let unregisterSettingsEventListener = null;
 		var dict_Settings = [];
+		dict_Settings = tableau.extensions.settings.getAll();
 
 		let unregisterFilterEventListener = null; //05.10.19 new code
+		let unregisterHandlerFunction = null; //05.13.19 new code
 		let worksheet = null; //05.10.19 new code
 		let worksheetName = null; //05.10.19 new code
 		let categoryColumnNumber = null; //05.10.19 new code
@@ -57,10 +59,16 @@
 				
 				// Add settings listener here
 				// Help refresh the chart upon save from configuration dialog
-				unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
-					getSettings();
-					getData_to_visjs();
-				});
+				//unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {					
+					//getSettings();
+					//getData_to_visjs();
+				//});
+				
+				// Add listener
+				//unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
+					// Filters are changed. Redraw.
+					//draw_chart();
+				//});
 
 			}, function () { console.log('Error while Initializing: ' + err.toString()); });
 		});		
@@ -75,9 +83,6 @@
 		var debugTimestamp = new Date();
 		var sheetName = tableau.extensions.settings.get("worksheet");
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
-
-		dict_Settings = tableau.extensions.settings.getAll();
-		console.log('dict_Settings: ', dict_Settings);
 
 		if (sheetName == undefined || sheetName =="" || sheetName == null) {
 			$("#configure").show();
