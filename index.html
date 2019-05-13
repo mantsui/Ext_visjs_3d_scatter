@@ -53,7 +53,7 @@
 		$(document).ready(function () {
 			// Added new code here to point to the configure function.
 			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {				
-				getSettings();
+				setupFilterEventListener();
 				getData_to_visjs();				
 			}, function () { console.log('Error while Initializing: ' + err.toString()); });
 		});		
@@ -366,7 +366,7 @@
 			};
 		}
 
-		function getSettings() {
+		function setupFilterEventListener() {
 			// Once the settings change populate global variables from the settings.
 			worksheetName = tableau.extensions.settings.get("worksheet");
 			//categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
@@ -386,7 +386,10 @@
 			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
 				console.log('filterEvent: ', filterEvent);
 				console.log('filterEvent.fieldName: ', filterEvent.fieldName);
-				getData_to_visjs();
+				if (filterEvent.fieldName === 'State') {
+					getData_to_visjs();
+				}
+
 			});
 		}
 
