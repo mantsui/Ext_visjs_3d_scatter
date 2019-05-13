@@ -42,7 +42,6 @@
 		// https://tableau.github.io/extensions-api/docs/interfaces/dashboard.html#addeventlistener
 		let unregisterSettingsEventListener = null;
 		var dict_Settings = [];
-		dict_Settings = tableau.extensions.settings.getAll();
 
 		let unregisterFilterEventListener = null; //05.10.19 new code
 		let unregisterHandlerFunction = null; //05.13.19 new code
@@ -53,7 +52,7 @@
 
 		$(document).ready(function () {
 			// Added new code here to point to the configure function.
-			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
+			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {				
 				getSettings();
 				getData_to_visjs();
 				
@@ -64,12 +63,6 @@
 					//getData_to_visjs();
 				//});
 				
-				// Add listener
-				//unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
-					// Filters are changed. Redraw.
-					//draw_chart();
-				//});
-
 			}, function () { console.log('Error while Initializing: ' + err.toString()); });
 		});		
 		
@@ -83,6 +76,8 @@
 		var debugTimestamp = new Date();
 		var sheetName = tableau.extensions.settings.get("worksheet");
 		console.log('Debug sheetName ', debugTimestamp.toGMTString(), ' ',sheetName); 
+
+		dict_Settings = tableau.extensions.settings.getAll();
 
 		if (sheetName == undefined || sheetName =="" || sheetName == null) {
 			$("#configure").show();
@@ -401,7 +396,7 @@
 				return sheet.name===worksheetName;
 			});
 
-			// Add listener
+			// Add filter change event listener
 			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
 				getData_to_visjs();
 			});
