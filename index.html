@@ -54,15 +54,7 @@
 			// Added new code here to point to the configure function.
 			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {				
 				getSettings();
-				getData_to_visjs();
-				
-				// Add settings listener here
-				// Help refresh the chart upon save from configuration dialog
-				//unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {					
-					//getSettings();
-					//getData_to_visjs();
-				//});
-				
+				getData_to_visjs();				
 			}, function () { console.log('Error while Initializing: ' + err.toString()); });
 		});		
 		
@@ -393,6 +385,7 @@
 			// Add filter change event listener
 			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
 				console.log('filterEvent: ', filterEvent);
+				console.log('filterEvent.fieldName: ', filterEvent.fieldName);
 				getData_to_visjs();
 			});
 		}
