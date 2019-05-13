@@ -272,13 +272,6 @@
 				Array_Of_Objects.push(SingleObject);	// Dynamically append object to the array
 			} //Looping through data array of objects.
 			
-			//05.13.19 to be deleted
-			/*if(Object.keys(Array_Of_Objects[0]).length == 2) {
-				for (var index = 0; index < Array_Of_Objects.length; index++) {
-					Array_Of_Objects[index].placeholder = ' ';
-				}
-			}*/
-
 			return Array_Of_Objects;
 		}
 
@@ -384,8 +377,8 @@
 		function getSettings() {
 			// Once the settings change populate global variables from the settings.
 			worksheetName = tableau.extensions.settings.get("worksheet");
-			categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
-			valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
+			//categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
+			//valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
 
 			// If settings are changed we will unregister and re register the listener.
 			if (unregisterFilterEventListener != null) {
@@ -399,6 +392,7 @@
 
 			// Add filter change event listener
 			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
+				console.log('filterEvent: ', filterEvent);
 				getData_to_visjs();
 			});
 		}
