@@ -367,6 +367,8 @@
 		}
 
 		function setupFilterEventListener() {
+			var FilterChange_Dimensions = [];
+			
 			// Once the settings change populate global variables from the settings.
 			worksheetName = tableau.extensions.settings.get("worksheet");
 
@@ -380,11 +382,19 @@
 				return sheet.name===worksheetName;
 			});
 
+			for(var key in dict_Settings) {
+				var value = dict_Settings[key];
+				if (key.startsWith('FilterChangeFieldName_')){
+					FilterChange_Dimensions.push(value);
+				}
+			}
+
 			// Add filter change event listener
 			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
 				console.log('filterEvent: ', filterEvent);
 				console.log('filterEvent.fieldName: ', filterEvent.fieldName);
-				if (filterEvent.fieldName === 'State') {
+				//if (filterEvent.fieldName === 'State') {
+				if (FilterChange_Dimensions.includes(filterEvent.fieldName)) {
 					getData_to_visjs();
 				}
 
