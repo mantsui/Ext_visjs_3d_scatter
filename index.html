@@ -389,16 +389,18 @@
 				}
 			}
 
-			// Add filter change event listener
-			unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
-				console.log('filterEvent: ', filterEvent);
-				console.log('filterEvent.fieldName: ', filterEvent.fieldName);
-				//if (filterEvent.fieldName === 'State') {
-				if (FilterChange_Dimensions.includes(filterEvent.fieldName)) {
-					getData_to_visjs();
-				}
+			if(worksheetName != null) {
+				// Add filter change event listener
+				unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
+					console.log('filterEvent: ', filterEvent);
+					console.log('filterEvent.fieldName: ', filterEvent.fieldName);
+					//if (filterEvent.fieldName === 'State') {
+					if (FilterChange_Dimensions.includes(filterEvent.fieldName)) {
+						getData_to_visjs();
+					}
 
-			});
+				});
+			}
 		}
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
