@@ -50,6 +50,7 @@
 			// Added new code here to point to the configure function.
 			tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
 				dict_Settings = tableau.extensions.settings.getAll();
+				console.log('dict_Settings: ', dict_Settings);
 				
 				setupFilterEventListener();
 				getData_to_visjs();				
@@ -100,7 +101,9 @@
 			var visjsDataInput = Convert_to_visjs_Array_of_Obj(Tableau_Array_of_Objects, dict_Settings);
 			console.log('Debug visjsDataInput: ', visjsDataInput);
 
-			draw_visjs_Chart(visjsDataInput, dict_Settings);
+			if(visjsDataInput.length > 0) {
+				draw_visjs_Chart(visjsDataInput, dict_Settings);
+			}
 
 		});
 		}
