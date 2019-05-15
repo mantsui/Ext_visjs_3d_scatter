@@ -223,11 +223,11 @@
 				},
 
 				verticalRatio: 1.0,
-				/*cameraPosition: {
+				cameraPosition: {
 					horizontal: -0.54,
 					vertical: 0.5,
-					distance: 1.6
-				},*/
+					distance: 2.5  //1.6
+				},
 				dotSizeMinFraction: 0.5,
 				dotSizeMaxFraction: 2.5
 			};
@@ -236,7 +236,6 @@
 			var graph = null;
 			var container = document.getElementById('visjs_Chart');
 			graph = new vis.Graph3d(container, data, options);
-			graph.fit();
 
 		} // function draw_visjs_Chart(data) block end
 		
