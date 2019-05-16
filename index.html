@@ -424,6 +424,11 @@
 				fieldName: 'State',
 				value: ['CA', 'TX', 'FL']
 			}], tableau.SelectionUpdateType.Replace );
+			
+			setTimeout(function() { ([{
+				fieldName: 'State',
+				value: 'All'
+			}], tableau.SelectionUpdateType.Replace ); }, 15000);
 		}
 
 		function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
