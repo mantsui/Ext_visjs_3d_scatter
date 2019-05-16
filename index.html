@@ -203,6 +203,7 @@
 					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.x.toLocaleString() + "</b>";
 					strOutput += "<br>" + Ordered_Measures[1] + ": " + "<b>" + point.y.toLocaleString() + "</b>";
 					strOutput += "<br>" + Ordered_Measures[2] + ": " + "<b>" + point.z.toLocaleString() + "</b>";
+					setMarksTo('filterSheetName', 'filterName', 'values');
 					
 					return strOutput;
 				},
@@ -410,7 +411,21 @@
 			
 			sheetToFilter.applyFilterAsync(filterName, values, tableau.FilterUpdateType.Replace);
 		}
-		
+
+		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
+		function setMarksTo(filterSheetName, filterName, values) {
+			//resetFilter(filterSheetName, filterName);
+			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
+				//return sheet.name === filterSheetName;
+				return sheet.name === 'Medicare Map';
+			});
+			
+			sheetToMark.selectMarksByValueAsync([{
+				fieldName: 'State',
+				value: ['CA', 'TX', 'FL']
+			}], tableau.SelectionUpdateType.Replace );
+		}
+
 		function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
 			var sheetToFilter = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
 				return sheet.name === filterSheetName;
