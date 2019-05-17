@@ -425,10 +425,12 @@
 				value: values // ['CA', 'TX', 'FL']
 			}], tableau.SelectionUpdateType.Replace );
 			
-			setTimeout(function() { ([{
-				fieldName: filterName,
-				value: 'All'
-			}], tableau.SelectionUpdateType.Replace ); }, 15000);
+			setTimeout(function() { 
+				sheetToMark.selectMarksByValueAsync([{
+					fieldName: filterName,
+					value: 'All'
+				}], tableau.SelectionUpdateType.Replace ); 
+			}, 15000);
 		}
 
 		function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
