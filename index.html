@@ -195,7 +195,8 @@
 
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
-					
+					console.log('point.data[Ordered_Dimensions[1]]:', point.data[ Ordered_Dimensions[1] ]);
+
 					for(var index = 1; index < Ordered_Dimensions.length; index++) {
 						strOutput += point.data[ Ordered_Dimensions[index] ] + "<br>";
 					}
@@ -203,7 +204,7 @@
 					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.x.toLocaleString() + "</b>";
 					strOutput += "<br>" + Ordered_Measures[1] + ": " + "<b>" + point.y.toLocaleString() + "</b>";
 					strOutput += "<br>" + Ordered_Measures[2] + ": " + "<b>" + point.z.toLocaleString() + "</b>";
-					setMarksTo('Medicare Map', 'filterName', 'values');
+					setMarksTo('Medicare Map', 'State', 'values');
 					
 					return strOutput;
 				},
