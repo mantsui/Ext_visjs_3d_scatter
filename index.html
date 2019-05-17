@@ -422,12 +422,12 @@
 			});
 			
 			sheetToMark.selectMarksByValueAsync([{
-				fieldName: 'State',
-				value: ['CA', 'TX', 'FL']
+				fieldName: filterName, //'State'
+				value: values // ['CA', 'TX', 'FL']
 			}], tableau.SelectionUpdateType.Replace );
 			
 			setTimeout(function() { ([{
-				fieldName: 'State',
+				fieldName: filterName,
 				value: 'All'
 			}], tableau.SelectionUpdateType.Replace ); }, 15000);
 		}
