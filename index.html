@@ -416,8 +416,8 @@
 		function setMarksTo(filterSheetName, filterName, values) {
 			//resetFilter(filterSheetName, filterName);
 			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
-				return sheet.name === filterSheetName;
-				//return sheet.name === 'Medicare Map';
+				//return sheet.name === filterSheetName;
+				return sheet.name === 'Medicare Map';
 			});
 			
 			sheetToMark.selectMarksByValueAsync([{
