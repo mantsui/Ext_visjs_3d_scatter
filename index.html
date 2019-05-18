@@ -415,9 +415,13 @@
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
 		function setMarksTo(filterSheetName, filterName, values) {
 			//resetFilter(filterSheetName, filterName);
+			console.log('filterSheetName: ', filterSheetName);
+			console.log('filterName: ', filterName);
+			console.log('values: ', values);
+			
 			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
-				//return sheet.name === filterSheetName;
-				return sheet.name === 'Medicare Map';
+				return sheet.name === filterSheetName;
+				//return sheet.name === 'Medicare Map';
 			});
 			
 			sheetToMark.selectMarksByValueAsync([{
