@@ -423,8 +423,12 @@
 				return sheet.name === filterSheetName;
 				//return sheet.name === 'Medicare Map';
 			});
-			
-			sheetToMark.selectMarksByValueAsync([{
+
+			var TempArrayofObj =[ {fieldname: 'State', value: 'TX'} ];
+			console.log('TempArrayofObj: ', TempArrayofObj);
+			sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
+
+			/*sheetToMark.selectMarksByValueAsync([{
 				fieldName: filterName, //'State'
 				value: values // ['CA', 'TX', 'FL']
 			}], tableau.SelectionUpdateType.Replace );
@@ -434,7 +438,7 @@
 					fieldName: filterName,
 					value: 'All'
 				}], tableau.SelectionUpdateType.Replace ); 
-			}, 15000);
+			}, 15000);*/
 		}
 
 		function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
