@@ -203,7 +203,7 @@
 					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.x.toLocaleString() + "</b>";
 					strOutput += "<br>" + Ordered_Measures[1] + ": " + "<b>" + point.y.toLocaleString() + "</b>";
 					strOutput += "<br>" + Ordered_Measures[2] + ": " + "<b>" + point.z.toLocaleString() + "</b>";
-					setMarksTo('Medicare Map', 'State', point.data[Ordered_Dimensions[1]]);
+					setMarksTo('Medicare Map', 'State', point.data[Ordered_Dimensions[0]]);
 					
 					return strOutput;
 				},
