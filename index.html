@@ -428,10 +428,7 @@
 			console.log('TempObj: ', TempObj);
 			//sheetToMark.selectMarksByValueAsync( [TempObj], tableau.SelectionUpdateType.Replace );
 
-			sheetToMark.selectMarksByValueAsync([{
-				fieldName: 'State',
-				value: 'TX'
-			}], tableau.SelectionUpdateType.Replace );
+			sheetToMark.selectMarksByValueAsync([{ fieldName: 'State', value: 'TX' }], tableau.SelectionUpdateType.Replace );
 			
 			/*sheetToMark.selectMarksByValueAsync([{
 				fieldName: filterName, //'State'
