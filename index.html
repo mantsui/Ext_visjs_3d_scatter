@@ -194,6 +194,8 @@
 
 					for(var index = 1; index < Ordered_Dimensions.length; index++) {
 						strOutput += point.data[ Ordered_Dimensions[index] ] + "<br>";
+						console.log('Looping fieldname: ', Ordered_Dimensions[index]);
+						console.log('Looping value: ', point.data[ Ordered_Dimensions[index] ]);
 					}
 					
 					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.x.toLocaleString() + "</b>";
