@@ -188,14 +188,23 @@
 
 					//Tableau mark selection on map sheet
 					//setSingleMarkTo(vizMedicareCostStat, "Hosp Stat Map visjs Pair", point.data['State'], point.data['Zip Code Desc']);
-
+					//Test highlight codes
+					// Establish array of marks (highlight) to load to target tableau sheet.
+					var arrayHighlightMarks = [];					
+					for(var index = 0; index < Ordered_Dimensions.length; index++) {
+						var singleMarkObj = {	fieldname: Ordered_Dimensions[index], 
+								     	value: point.data[ Ordered_Dimensions[index] ]};
+						arrayHighlightMarks.push( singleMarkObj );
+						//console.log('Looping fieldname: ', Ordered_Dimensions[index]);
+						//console.log('Looping value: ', point.data[ Ordered_Dimensions[index] ]);
+					}
+					console.log(arrayHighlightMarks);
+					
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
 
 					for(var index = 1; index < Ordered_Dimensions.length; index++) {
 						strOutput += point.data[ Ordered_Dimensions[index] ] + "<br>";
-						console.log('Looping fieldname: ', Ordered_Dimensions[index]);
-						console.log('Looping value: ', point.data[ Ordered_Dimensions[index] ]);
 					}
 					
 					strOutput += "<br>" + Ordered_Measures[0] + ": " + "<b>" + point.x.toLocaleString() + "</b>";
