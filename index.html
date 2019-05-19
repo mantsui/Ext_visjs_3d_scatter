@@ -421,19 +421,24 @@
 			});
 
 			var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
+			TempArrayofObj = [
+				{ fieldName: 'State', value: 'TX' },
+				{ fieldName: 'Zip Code Desc', value: 'ABILENE' },
+				{ fieldName: 'Hospital Component Name', value: 'FISHER COUNTY HOSPITAL DISTRICT' }
+			];
 			console.log('TempArrayofObj: ', TempArrayofObj);
-			//sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
+			sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
 
 			var TempObj = {fieldname: 'State', value: 'TX'};
 			console.log('TempObj: ', TempObj);
 			//sheetToMark.selectMarksByValueAsync( [TempObj], tableau.SelectionUpdateType.Replace );
 
 			//sheetToMark.selectMarksByValueAsync([{ fieldName: 'State', value: 'TX' }], tableau.SelectionUpdateType.Replace );
-			sheetToMark.selectMarksByValueAsync([
+			/*sheetToMark.selectMarksByValueAsync([
 				{ fieldName: 'State', value: 'TX' },
 				{ fieldName: 'Zip Code Desc', value: 'ABILENE' },
 				{ fieldName: 'Hospital Component Name', value: 'FISHER COUNTY HOSPITAL DISTRICT' }
-			], tableau.SelectionUpdateType.Replace );
+			], tableau.SelectionUpdateType.Replace );*/
 			
 			/*sheetToMark.selectMarksByValueAsync([{
 				fieldName: filterName, //'State'
