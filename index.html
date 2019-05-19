@@ -422,7 +422,11 @@
 
 			var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
 			console.log('TempArrayofObj: ', TempArrayofObj);
-			sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
+			//sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
+
+			var TempObj = {fieldname: 'State', value: 'TX'};
+			console.log('TempObj: ', TempObj);
+			sheetToMark.selectMarksByValueAsync( [TempObj], tableau.SelectionUpdateType.Replace );
 
 			/*sheetToMark.selectMarksByValueAsync([{
 				fieldName: filterName, //'State'
