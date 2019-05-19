@@ -420,7 +420,7 @@
 				//return sheet.name === 'Medicare Map';
 			});
 
-			var TempArrayofObj = {fieldname: 'State', value: 'TX'} ;
+			var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
 			console.log('TempArrayofObj: ', TempArrayofObj);
 			sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
 
