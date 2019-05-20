@@ -429,14 +429,18 @@
 				return sheet.name === filterSheetName;
 			});
 
-			sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
-			/*var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
+			//sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
+			var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
 			TempArrayofObj = [
 				{ fieldName: 'State', value: 'TX' },
 				{ fieldName: 'Zip Code Desc', value: 'ABILENE' }
 			];
+			TempArrayofObj = [
+				{ fieldName: 'Hospital Component Name', value: 'KFH - FONTANA' },
+				{ fieldName: 'State', value: 'CA' }
+			];
 			console.log('TempArrayofObj: ', TempArrayofObj);
-			sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );*/
+			sheetToMark.selectMarksByValueAsync( TempArrayofObj, tableau.SelectionUpdateType.Replace );
 
 			//var TempObj = {fieldname: 'State', value: 'TX'};
 			//console.log('TempObj: ', TempObj);
