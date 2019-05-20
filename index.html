@@ -190,7 +190,7 @@
 					var arrayHighlightMarks = [];
 					console.log('Ordered_Dimensions.length: ', Ordered_Dimensions.length);
 					for(var index = 0; index < Ordered_Dimensions.length; index++) {
-						var singleMarkObj = {	fieldname: Ordered_Dimensions[index], 
+						var singleMarkObj = {	fieldName: Ordered_Dimensions[index], 
 								     	value: point.data[ Ordered_Dimensions[index] ]};
 						
 						if(Ordered_Dimensions[index] == 'State' || Ordered_Dimensions[index] == 'Hospital Component Name') {
@@ -429,8 +429,9 @@
 				return sheet.name === filterSheetName;
 			});
 			
-			console.log('JSON.stringify: ', JSON.stringify(inputArrayMarks));
-			sheetToMark.selectMarksByValueAsync( JSON.stringify(inputArrayMarks), tableau.SelectionUpdateType.Replace );
+			//console.log('JSON.stringify: ', JSON.stringify(inputArrayMarks));
+			//sheetToMark.selectMarksByValueAsync( JSON.stringify(inputArrayMarks), tableau.SelectionUpdateType.Replace );
+			sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
 			/*var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
 			TempArrayofObj = [
 				{ fieldName: 'State', value: 'TX' },
