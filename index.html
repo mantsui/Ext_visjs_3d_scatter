@@ -190,7 +190,8 @@
 					//setSingleMarkTo(vizMedicareCostStat, "Hosp Stat Map visjs Pair", point.data['State'], point.data['Zip Code Desc']);
 					//Test highlight codes
 					// Establish array of marks (highlight) to load to target tableau sheet.
-					var arrayHighlightMarks = [];					
+					var arrayHighlightMarks = [];
+					console.log('Ordered_Dimensions.length: ', Ordered_Dimensions.length);
 					for(var index = 0; index < Ordered_Dimensions.length; index++) {
 						var singleMarkObj = {	fieldname: Ordered_Dimensions[index], 
 								     	value: point.data[ Ordered_Dimensions[index] ]};
