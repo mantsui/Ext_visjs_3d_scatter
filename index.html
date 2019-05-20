@@ -429,7 +429,7 @@
 				return sheet.name === filterSheetName;
 			});
 
-			sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
+			sheetToMark.selectMarksByValueAsync( JSON.stringify(inputArrayMarks), tableau.SelectionUpdateType.Replace );
 			/*var TempArrayofObj = [{fieldname: 'State', value: 'TX'}] ;
 			TempArrayofObj = [
 				{ fieldName: 'State', value: 'TX' },
