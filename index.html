@@ -429,8 +429,9 @@
 				return sheet.name === filterSheetName;
 			});
 			
-			sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
-
+			if(inputArrayMarks.length > 1) {
+				sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
+			}
 			//sheetToMark.selectMarksByValueAsync([{ fieldName: 'State', value: 'TX' }], tableau.SelectionUpdateType.Replace );
 			/*sheetToMark.selectMarksByValueAsync([
 				{ fieldName: 'State', value: 'TX' },
