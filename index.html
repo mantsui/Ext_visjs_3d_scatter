@@ -472,7 +472,14 @@
 				}
 			});
 		}
-		
+
+		function getMousePos(e) {
+			var x = e.clientX,
+			    y = e.clientY;
+
+			return {x: x, y: y};
+		}
+
 	})();		
 </script>
 </body>
