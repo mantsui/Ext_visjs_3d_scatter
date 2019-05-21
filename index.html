@@ -475,10 +475,14 @@
 		}
 
 		function getMousePos(e) {
-			var x = e.clientX,
-			    y = e.clientY;
-
-			return {x: x, y: y};
+			var mouseX, mouseY;
+			
+			$(document).mousemove(function(e) {
+				mouseX = e.pageX;
+				mouseY = e.pageY;
+			}).mouseover(); // call the handler immediately
+			
+			return {x: mouseX, y: mouseY};
 		}
 
 	})();		
