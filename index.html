@@ -463,7 +463,8 @@
 
 		function getMousePos() {
 			var mouseX, mouseY;			
-			$(document.body).on( "mousemove", function( event ) {
+			//$(document).on( "mousemove", function( event ) {
+			document.getElementById('visjs_Chart').on( "mousemove", function( event ) {
 				mouseX = event.pageX;
 				mouseY = event.pageY;
 			})
