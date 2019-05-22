@@ -477,14 +477,19 @@
 			
 			var mouseX = -1;
 			var mouseY = -1;
-			jQuery(document).ready(function($) {
+			/*jQuery(document).ready(function($) {
 
 				//get the current x and y of the mouse pointer
 				//var X = $('body').offset().left;
 				//var Y = $('body').offset().top;
 				mouseX = ev.pageX;
 				mouseY = ev.pageY;
-			});
+			});*/
+			
+			$( document ).on( "mousemove", function( event ) {
+				mouseX = event.pageX;
+				mouseY = event.pageY;
+			})
 			
 			return {x: mouseX, y: mouseY};			
 		}
