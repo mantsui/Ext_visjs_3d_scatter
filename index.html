@@ -128,6 +128,7 @@
 
 			var Ordered_Dimensions = [];
 			var Ordered_Measures = [];
+			var Highlight_Dimensions = [];
 			for(var key in obj_Ext_Settings) {
 				var value = obj_Ext_Settings[key];
 				if (key.startsWith('FieldName_')){
@@ -135,6 +136,9 @@
 				}
 				if (key.startsWith('MeasureName_')){
 					Ordered_Measures.push(value);
+				}
+				if (key.startsWith('HighlightFieldName_')){
+					Highlight_Dimensions.push(value);
 				}
 			}
 
@@ -150,6 +154,7 @@
 			settingGridColor = obj_Ext_Settings['gridColor'];
 			settingAxisColor = obj_Ext_Settings['axisColor'];
 
+			var highlightSheet = obj_Ext_Settings['HighlightSheet'];
 			
 			// specify options
 			var options = {
@@ -195,7 +200,8 @@
 								     	value: point.data[ Ordered_Dimensions[index] ]};
 						
 						//if(Ordered_Dimensions[index] == 'State' || Ordered_Dimensions[index] == 'Hospital Component Name') {
-						if(Ordered_Dimensions[index] == 'State' || Ordered_Dimensions[index] == 'Zip Code Desc') {
+						//if(Ordered_Dimensions[index] == 'State' || Ordered_Dimensions[index] == 'Zip Code Desc') {
+						if(Highlight_Dimensions.includes( Ordered_Dimensions[index] )) {
 							arrayHighlightMarks.push( singleMarkObj );
 						}
 					}
@@ -203,7 +209,7 @@
 					//Tableau mark selection on map sheet
 					setMarksTo('Medicare Map', arrayHighlightMarks);
 					//setMarksTo('Medicare Map', 'State', point.data[Ordered_Dimensions[0]]); Temp code 05.19.19
-					console.log('Mouse pos: ', getMousePos());
+					//console.log('Mouse pos: ', getMousePos());
 					
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
