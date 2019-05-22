@@ -207,7 +207,7 @@
 					//var mouseX = event.clientX;
 					//var mouseY = event.clientY;
 					//console.log('Mouse pos: ', mouseX, ', ', mouseY);
-					//console.log('Mouse pos: ', getMousePos(e));
+					console.log('Mouse pos: ', getMousePos());
 					
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
@@ -465,15 +465,28 @@
 			});
 		}
 
-		function getMousePos(e) {
-			var mouseX, mouseY;
+		function getMousePos() {
+			/*var mouseX, mouseY;
 			
 			$(document).mousemove(function(e) {
 				mouseX = e.pageX;
 				mouseY = e.pageY;
 			}).mouseover(); // call the handler immediately
 			
-			return {x: mouseX, y: mouseY};
+			return {x: mouseX, y: mouseY};*/
+			
+			var mouseX = -1;
+			var mouseY = -1;
+			jQuery(document).ready(function($) {
+
+				//get the current x and y of the mouse pointer
+				//var X = $('body').offset().left;
+				//var Y = $('body').offset().top;
+				mouseX = ev.pageX;
+				mouseY = ev.pageY;
+			});
+			
+			return {x: mouseX, y: mouseY};			
 		}
 
 	})();		
