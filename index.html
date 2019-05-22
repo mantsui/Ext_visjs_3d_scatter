@@ -485,12 +485,10 @@
 				mouseX = ev.pageX;
 				mouseY = ev.pageY;
 			});*/
-			$(function () {
-				$(document).on( "mousemove", function( event ) {
-					mouseX = event.pageX;
-					mouseY = event.pageY;
-				})
-			});
+			$(window).on( "mousemove", function( event ) {
+				mouseX = event.pageX;
+				mouseY = event.pageY;
+			})
 			return {x: mouseX, y: mouseY};			
 		}
 
