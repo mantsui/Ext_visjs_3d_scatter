@@ -390,7 +390,7 @@
 			};
 		}
 
-		function setupFilterEventListener() {
+		/*function setupFilterEventListener() {
 			var FilterChange_Dimensions = [];
 			
 			// Once the settings change populate global variables from the settings.
@@ -424,17 +424,14 @@
 
 				});
 			}
-		}
+		}*/
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
 		function setMarksTo(targetSheetName, inputArrayMarks) {
-			console.log('Temp inputArrayMarks', inputArrayMarks);
-			console.log('targetSheetName: ', targetSheetName);
 			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
 				return sheet.name === targetSheetName;
 			});
 			
-			console.log('Temp sheetToMark: ', sheetToMark);
 			if(inputArrayMarks.length > 1) {
 				sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
 			} else if (inputArrayMarks.length == 1) {
