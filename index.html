@@ -331,15 +331,15 @@
 					
 					if (matchCounter == Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
-							o.x = parseFloat(d['Measure Values']) ;
+							o.x = parseFloat(d['Measure Values'].replace(',','')) ;
 						}
 
 						if (d['Measure Names'] == Ordered_Measures[1] ) {
-							o.y = parseFloat(d['Measure Values']);
+							o.y = parseFloat(d['Measure Values'].replace(',',''));
 						}
 
 						if (d['Measure Names'] == Ordered_Measures[2] ) {
-							o.z = parseFloat(d['Measure Values']);
+							o.z = parseFloat(d['Measure Values'].replace(',',''));
 						}
 
 					}
