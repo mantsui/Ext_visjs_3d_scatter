@@ -435,6 +435,7 @@
 				return sheet.name === filterSheetName;
 			});
 			
+			console.log('Temp sheetToMark: ', sheetToMark);
 			if(inputArrayMarks.length > 1) {
 				sheetToMark.selectMarksByValueAsync( inputArrayMarks, tableau.SelectionUpdateType.Replace );
 			} else if (inputArrayMarks.length == 1) {
