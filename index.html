@@ -3,15 +3,14 @@
 
 <head>
 	<!-- jQuery -->
-	<!-- script src="https://code.jquery.com/jquery-3.2.1.min.js"></script -->
 	<script src='jquery-3.2.1.min.js'></script>
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 
-	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js'></script>
-	
+	<!--script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js'></script-->
+	<script src='vis.min.js'></script>	
 	<style>
 	</style>
 	
@@ -331,18 +330,30 @@
 					
 					if (matchCounter == Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
-							o.x = parseFloat(d['Measure Values'].replace(/,/g,''));
-							// convert string to float and remove commas
+							if( (typeof d['Measure Values']) != 'number' ) {
+								o.x = parseFloat(d['Measure Values'].replace(/,/g,''));
+								// convert string to float and remove commas
+							} else {
+								o.x = d['Measure Values'];
+							}
 						}
 
 						if (d['Measure Names'] == Ordered_Measures[1] ) {
-							o.y = parseFloat(d['Measure Values'].replace(/,/g,''));
-							// convert string to float and remove commas
+							if( (typeof d['Measure Values']) != 'number' ) {
+								o.y = parseFloat(d['Measure Values'].replace(/,/g,''));
+								// convert string to float and remove commas
+							} else {
+								o.y = d['Measure Values'];
+							}
 						}
 
 						if (d['Measure Names'] == Ordered_Measures[2] ) {
-							o.z = parseFloat(d['Measure Values'].replace(/,/g,''));
-							// convert string to float and remove commas
+							if( (typeof d['Measure Values']) != 'number' ) {
+								o.z = parseFloat(d['Measure Values'].replace(/,/g,''));
+								// convert string to float and remove commas
+							} else {
+								o.z = d['Measure Values'];
+							}
 						}
 
 					}
