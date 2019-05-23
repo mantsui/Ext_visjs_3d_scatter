@@ -331,15 +331,18 @@
 					
 					if (matchCounter == Ordered_Dimensions.length) {
 						if (d['Measure Names'] == Ordered_Measures[0] ) {
-							o.x = parseFloat(d['Measure Values'].replace(',','')) ;
+							o.x = parseFloat(d['Measure Values'].replace(/,/g,''));
+							// convert string to float and remove commas
 						}
 
 						if (d['Measure Names'] == Ordered_Measures[1] ) {
-							o.y = parseFloat(d['Measure Values'].replace(',',''));
+							o.y = parseFloat(d['Measure Values'].replace(/,/g,''));
+							// convert string to float and remove commas
 						}
 
 						if (d['Measure Names'] == Ordered_Measures[2] ) {
-							o.z = parseFloat(d['Measure Values'].replace(',',''));
+							o.z = parseFloat(d['Measure Values'].replace(/,/g,''));
+							// convert string to float and remove commas
 						}
 
 					}
