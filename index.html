@@ -429,18 +429,8 @@
 		}
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
-		/*function setFilterTo(filterSheetName, filterName, values) {
-			//resetFilter(filterSheetName, filterName);
-			var sheetToFilter = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
-				return sheet.name === filterSheetName;
-			});
-			
-			sheetToFilter.applyFilterAsync(filterName, values, tableau.FilterUpdateType.Replace);
-		}*/
-
-		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
 		function setMarksTo(filterSheetName, inputArrayMarks) {
-			
+			console.log('Temp inputArrayMarks', inputArrayMarks);
 			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
 				return sheet.name === filterSheetName;
 			});
@@ -461,18 +451,6 @@
 				}], tableau.SelectionUpdateType.Replace ); 
 			}, 15000);*/
 		}
-
-		/*function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
-			var sheetToFilter = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
-				return sheet.name === filterSheetName;
-			});
-			
-			arrDimensionList.forEach(function(currentValue){
-				if( arrTargetFilters.includes(currentValue) ) {
-					sheetToFilter.clearFilterAsync(currentValue);	// Reset filters for sheetToFiler
-				}
-			});
-		}*/
 
 		function getMousePos() {
 			var mouseX, mouseY;			
