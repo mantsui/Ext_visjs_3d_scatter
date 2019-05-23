@@ -429,10 +429,11 @@
 		}
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
-		function setMarksTo(filterSheetName, inputArrayMarks) {
+		function setMarksTo(targetSheetName, inputArrayMarks) {
 			console.log('Temp inputArrayMarks', inputArrayMarks);
+			console.log('targetSheetName: ', targetSheetName);
 			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
-				return sheet.name === filterSheetName;
+				return sheet.name === targetSheetName;
 			});
 			
 			console.log('Temp sheetToMark: ', sheetToMark);
