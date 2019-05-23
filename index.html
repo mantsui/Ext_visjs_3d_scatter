@@ -122,7 +122,6 @@
 		}
 		
 		function draw_visjs_Chart(inputArray, obj_Ext_Settings){
-			console.log('Temp draw_visjs_Chart');
 			var data = new vis.DataSet();
 			data.add(inputArray);
 
@@ -155,7 +154,6 @@
 			settingAxisColor = obj_Ext_Settings['axisColor'];
 
 			var highlightSheet = obj_Ext_Settings['HighlightSheet'];
-			console.log('Temp vis.js variable initializing step');
 			
 			// specify options
 			var options = {
@@ -190,7 +188,6 @@
 
 				// Option tooltip can be true, false, or a function returning a string with HTML contents
 				tooltip: function (point) {
-					console.log('Temp tooltip step');
 					// parameter point contains properties x, y, z, and data
 					// data is the original object passed to the point constructor
 
@@ -199,7 +196,8 @@
 					for(var index = 0; index < Ordered_Dimensions.length; index++) {
 						var singleMarkObj = {	fieldName: Ordered_Dimensions[index], 
 								     	value: point.data[ Ordered_Dimensions[index] ]};
-						
+						console.log('Temp singleMarkObj: ', singleMarkObj);
+						console.log('Temp Highlight_Dimensions: ', Highlight_Dimensions);
 						if(Highlight_Dimensions.includes( Ordered_Dimensions[index] )) {
 							arrayHighlightMarks.push( singleMarkObj );
 						}
