@@ -196,14 +196,12 @@
 					for(var index = 0; index < Ordered_Dimensions.length; index++) {
 						var singleMarkObj = {	fieldName: Ordered_Dimensions[index], 
 								     	value: point.data[ Ordered_Dimensions[index] ]};
-						console.log('Temp singleMarkObj: ', singleMarkObj);
-						console.log('Temp Highlight_Dimensions: ', Highlight_Dimensions);
 						if(Highlight_Dimensions.includes( Ordered_Dimensions[index] )) {
 							arrayHighlightMarks.push( singleMarkObj );
 						}
 					}
 					//Tableau mark selection on map sheet
-					setMarksTo('Medicare Map', arrayHighlightMarks);
+					setMarksTo(highlightSheet, arrayHighlightMarks);
 					
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
