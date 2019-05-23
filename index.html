@@ -194,22 +194,16 @@
 
 					// Establish array of marks (highlight) to load to target tableau sheet.
 					var arrayHighlightMarks = [];
-					console.log('Ordered_Dimensions.length: ', Ordered_Dimensions.length);
 					for(var index = 0; index < Ordered_Dimensions.length; index++) {
 						var singleMarkObj = {	fieldName: Ordered_Dimensions[index], 
 								     	value: point.data[ Ordered_Dimensions[index] ]};
 						
-						//if(Ordered_Dimensions[index] == 'State' || Ordered_Dimensions[index] == 'Hospital Component Name') {
-						//if(Ordered_Dimensions[index] == 'State' || Ordered_Dimensions[index] == 'Zip Code Desc') {
 						if(Highlight_Dimensions.includes( Ordered_Dimensions[index] )) {
 							arrayHighlightMarks.push( singleMarkObj );
 						}
 					}
-					console.log('arrayHighlightMarks: ', arrayHighlightMarks);
 					//Tableau mark selection on map sheet
 					setMarksTo('Medicare Map', arrayHighlightMarks);
-					//setMarksTo('Medicare Map', 'State', point.data[Ordered_Dimensions[0]]); Temp code 05.19.19
-					//console.log('Mouse pos: ', getMousePos());
 					
 					var strOutput = '';
 					strOutput = "<b><u>" + point.data[ Ordered_Dimensions[0] ] + "</u></b><br>";
@@ -420,19 +414,17 @@
 		}
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
-		function setFilterTo(filterSheetName, filterName, values) {
+		/*function setFilterTo(filterSheetName, filterName, values) {
 			//resetFilter(filterSheetName, filterName);
 			var sheetToFilter = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
 				return sheet.name === filterSheetName;
 			});
 			
 			sheetToFilter.applyFilterAsync(filterName, values, tableau.FilterUpdateType.Replace);
-		}
+		}*/
 
 		// Filter the specified dimension to the specified value(s) for a target sheet in the dashboard
-		//function setMarksTo(filterSheetName, filterName, values) {
 		function setMarksTo(filterSheetName, inputArrayMarks) {
-			console.log('inputArrayMarks: ', inputArrayMarks);
 			
 			var sheetToMark = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
 				return sheet.name === filterSheetName;
@@ -455,7 +447,7 @@
 			}, 15000);*/
 		}
 
-		function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
+		/*function resetFilter(filterSheetName, arrDimensionList, arrTargetFilters) {
 			var sheetToFilter = tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) { 
 				return sheet.name === filterSheetName;
 			});
@@ -465,7 +457,7 @@
 					sheetToFilter.clearFilterAsync(currentValue);	// Reset filters for sheetToFiler
 				}
 			});
-		}
+		}*/
 
 		function getMousePos() {
 			var mouseX, mouseY;			
